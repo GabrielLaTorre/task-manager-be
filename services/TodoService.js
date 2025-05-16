@@ -1,5 +1,5 @@
-import supabase from "../database/client";
-import { Todo } from "../models/Todo";
+import supabase from "../database/client.js";
+import { Todo } from "../models/Todo.js";
 
 export class TodoService {
     async getTodos() {
@@ -20,7 +20,8 @@ export class TodoService {
     async addTodo(title) {
         const { data, error } = await supabase
             .from("todos")
-            .insert([{ title, completed: false }]);
+            .insert([{ title, completed: false }])
+            .select();
 
         if (error) {
             throw new Error(error.message);
@@ -35,7 +36,8 @@ export class TodoService {
         const { data, error } = await supabase
             .from("todos")
             .update(updateData)
-            .eq("id", id);
+            .eq("id", id)
+            .select();
 
         if (error) {
             throw new Error(error.message);
@@ -50,7 +52,8 @@ export class TodoService {
         const { data, error } = await supabase
             .from("todos")
             .delete()
-            .eq("id", id);
+            .eq("id", id)
+            .select();
 
         if (error) {
             throw new Error(error.message);

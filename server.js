@@ -1,11 +1,11 @@
 import http from 'http';
 import dotenv from 'dotenv';
+import { router } from './routes/routes.js';
 
 dotenv.config();
 
 const server = http.createServer((req, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Hello, World!\n');
+    router(req, res)
 });
 
 const PORT = process.env.PORT || 3000;
