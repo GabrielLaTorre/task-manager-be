@@ -25,7 +25,7 @@ export const router = async (req, res) => {
     }
 
     const dynamicRoute = Object.keys(routes[method] || {}).find(route => {
-        route.includes("/:id") && url.starsWith(route.split("/:id")[0])
+        return route.includes("/:id") && url.startsWith(route.split("/:id")[0])
     });
 
     if (dynamicRoute) {
