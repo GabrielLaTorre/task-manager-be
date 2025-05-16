@@ -38,7 +38,8 @@ Node v18.20.8 or later
   3. Go to https://supabase.com/ to create an account and a new project
   <br><br>
   4. Run the following query in the supabase console to create the 'todos' table
-    ```
+
+     ```
         create table public.todos (
         id uuid not null default extensions.uuid_generate_v4 (),
         title text not null,
@@ -46,15 +47,15 @@ Node v18.20.8 or later
         created_at timestamp,
         constraint todos_pkey primary key (id),
       ) TABLESPACE pg_default;
-    ```
+     ```
   <br><br>
   5. Create a .env file on root and set the necessary environment variables
 
-     ```
+   ```
         SUPABASE_URL=
         SUPABASE_KEY=
         PORT=
-      ```
+   ```
 <br><br>
 ## Usage
 
