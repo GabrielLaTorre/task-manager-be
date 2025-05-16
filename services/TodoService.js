@@ -12,8 +12,6 @@ export class TodoService {
             throw new Error(error.message);
         }
 
-        console.log("Fetched todos:", data);
-
         return data.map((todo) => new Todo(todo.id, todo.title, todo.completed));
     }
 
@@ -26,8 +24,6 @@ export class TodoService {
         if (error) {
             throw new Error(error.message);
         }
-
-        console.log("Added todo:", data);
 
         return data[0];
     }
@@ -43,8 +39,6 @@ export class TodoService {
             throw new Error(error.message);
         }
 
-        console.log("Updated todo:", data);
-
         return data[0];
     }
 
@@ -58,8 +52,6 @@ export class TodoService {
         if (error) {
             throw new Error(error.message);
         }
-
-        console.log("Deleted todo:", data);
 
         return data[0];
     }
